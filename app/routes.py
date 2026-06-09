@@ -20,5 +20,5 @@ def api_info():
     return jsonify({
         "name": "DevSecOps Mini Platform",
         "version": "0.1.0",
-        "description": "development"
+        "environment": "development"
         })
