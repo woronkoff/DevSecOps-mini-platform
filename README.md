@@ -33,3 +33,36 @@ Create a virtual environment:
 ```bash
 python3 -m venv venv
 ```
+
+## Day 2
+
+Improved the project structure by adding:
+
+- `app/` package
+- Flask application factory
+- Blueprint-based routes
+- `GET /api/info`
+- `.env.example` for safe configuration examples
+
+## Project Structure
+
+```text
+devsecops-mini-platform/
+├── app/
+│   ├── __init__.py
+│   └── routes.py
+├── .env.example
+├── .gitignore
+├── app.py
+├── README.md
+└── requirements.txt
+```
+
+## API Endpoints
+
+| Method | Endpoint    | Description             |
+| ------ | ----------- | ----------------------- |
+| GET    | `/`         | Welcome message         |
+| GET    | `/health`   | Health check            |
+| GET    | `/api/info` | Application information |
+
