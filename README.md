@@ -34,6 +34,31 @@ Create a virtual environment:
 python3 -m venv venv
 ```
 
+## Activate it on Linux/macOS:
+
+    source venv/bin/activate
+
+## Activate it on Windows PowerShell:
+
+    .\venv\Scripts\Activate.ps1
+
+## Install dependencies:
+
+    pip install -r requirements.txt
+
+## Run the app:
+
+    python3 run.py
+
+## On Windows, you may need:
+
+    python run.py
+
+## Test the app:
+
+    curl http://127.0.0.1:5000/
+    curl http://127.0.0.1:5000/health
+
 ## Day 2
 
 Improved the project structure by adding:
@@ -53,7 +78,7 @@ devsecops-mini-platform/
 │   └── routes.py
 ├── .env.example
 ├── .gitignore
-├── app.py
+├── run.py
 ├── README.md
 └── requirements.txt
 ```
@@ -66,3 +91,41 @@ devsecops-mini-platform/
 | GET    | `/health`   | Health check            |
 | GET    | `/api/info` | Application information |
 
+## Day 3
+
+Added automated tests with pytest.
+
+The tests check:
+
+- `GET /`
+- `GET /health`
+- `GET /api/info`
+
+## Running tests
+
+Activate the virtual environment:
+
+```bash
+source venv/bin/activate
+```
+
+## On Windows PowerShell:
+
+    .\venv\Scripts\Activate.ps1
+
+## Run tests:
+
+    pytest
+
+## Expected result:
+
+    ============================= test session starts ==============================
+    platform linux -- Python 3.13.5, pytest-9.0.3, pluggy-1.6.0
+    rootdir: /home/devsecops-mini-platform
+    configfile: pytest.ini
+    testpaths: tests
+    collected 3 items
+
+    tests/test_routes.py ...                                                 [100%]
+
+    ============================== 3 passed in 0.01s ===============================
