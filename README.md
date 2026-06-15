@@ -129,3 +129,18 @@ source venv/bin/activate
     tests/test_routes.py ...                                                 [100%]
 
     ============================== 3 passed in 0.01s ===============================
+
+## Day 4
+
+Added GitHub Actions CI pipeline.
+
+Every push now automatically runs tests using pytest.
+
+If tests fail, the pipeline fails.
+
+## CI
+
+The project uses GitHub Actions to:
+
+- Install dependencies
+- Run automated tests
