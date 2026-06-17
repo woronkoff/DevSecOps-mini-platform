@@ -144,3 +144,25 @@ The project uses GitHub Actions to:
 
 - Install dependencies
 - Run automated tests
+
+## Day 5
+
+Dockerized the Flask application.
+
+## Run with Docker
+
+## Build image:
+
+```bash
+docker build -t devsecops-mini-platform .
+```
+
+## Run container:
+
+    docker run -p 5000:5000 devsecops-mini-platform
+
+## Test:
+
+    curl http://127.0.0.1:5000/
+    curl http://127.0.0.1:5000/health
+    curl http://127.0.0.1:5000/api/info

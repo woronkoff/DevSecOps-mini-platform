@@ -15,7 +15,7 @@ def health_check():
         "status": "healthy"
         })
 
-@main.get("/app/info")
+@main.get("/api/info")
 def app_info():
     return jsonify({
         "app_name": "DevSecOps Mini Platform",

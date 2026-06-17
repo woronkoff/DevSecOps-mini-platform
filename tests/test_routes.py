@@ -18,7 +18,7 @@ def test_health_endpoint(client):
     assert data["status"] == "healthy"
 
 def test_app_info_endpoint(client):
-    response = client.get('/app/info')
+    response = client.get('/api/info')
 
     assert response.status_code == 200
 
