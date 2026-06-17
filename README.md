@@ -76,8 +76,15 @@ devsecops-mini-platform/
 ├── app/
 │   ├── __init__.py
 │   └── routes.py
+├── tests/
+│   ├── conftest.py
+│   └── test_routes.py
+├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── docker-compose.yml
+├── Dockerfile
+├── pytest.ini
 ├── run.py
 ├── README.md
 └── requirements.txt
@@ -166,3 +173,19 @@ docker build -t devsecops-mini-platform .
     curl http://127.0.0.1:5000/
     curl http://127.0.0.1:5000/health
     curl http://127.0.0.1:5000/api/info
+
+## Day 6
+
+Added Docker Compose for easier container management.
+
+## Run with Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+## Stop:
+
+```bash
+docker-compose down
+```
