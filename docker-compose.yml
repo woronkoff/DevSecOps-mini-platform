@@ -9,7 +9,11 @@ services:
       - "5000:5000"
       
     environment:
-      - FLASK_ENV=development
+      - APP_NAME=DevSecOps Mini Platform
+      - APP_VERSION=0.1.0
+      - APP_ENV=development
+      - FLASK_HOST=0.0.0.0
+      - FLASK_PORT=5000
 
     volumes:
       - .:/app

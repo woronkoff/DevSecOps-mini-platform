@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, current_app
 
 main = Blueprint('main', __name__)
 
@@ -7,18 +7,18 @@ def home():
     return jsonify({
         "message": "DevSecOps Mini Platform is running",
         "status": "ok"
-        })
+    })
 
 @main.get("/health")
 def health_check():
     return jsonify({
         "status": "healthy"
-        })
+    })
 
 @main.get("/api/info")
 def app_info():
     return jsonify({
-        "app_name": "DevSecOps Mini Platform",
-        "version": "0.1.0",
-        "environment": "development"
+        "name": current_app.config.get("APP_NAME"),
+        "version": current_app.config.get("APP_VERSION"),
+        "environment": current_app.config.get("APP_ENV")
     })

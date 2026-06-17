@@ -189,3 +189,19 @@ docker-compose up --build
 ```bash
 docker-compose down
 ```
+
+## Day 7
+
+Added environment variables and configuration management.
+
+## Configuration
+
+The app now uses environment variables instead of hardcoded values.
+
+## Example:
+
+```env
+APP_NAME=DevSecOps Mini Platform
+APP_VERSION=0.1.0
+APP_ENV=development
+```
