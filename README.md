@@ -1,77 +1,65 @@
 # DevSecOps Mini Platform
 
-A beginner-friendly DevSecOps learning project.
+A hands-on DevSecOps learning project built step by step.
 
-This project starts as a simple Flask API and will grow step by step into a small DevSecOps practice platform.
+This project starts as a simple Flask API and evolves into a small platform covering core DevOps and DevSecOps practices such as testing, CI/CD, containerization, and secure configuration.
 
-## Goals
+---
 
-- Practice Linux basics for DevOps
-- Practice Git and GitHub workflow
-- Build a Flask API
-- Learn Docker
-- Learn Docker Compose
-- Learn CI/CD with GitHub Actions
-- Learn environment variables and secrets
-- Learn dependency scanning
-- Learn static code analysis
-- Learn basic vulnerability scanning
-- Learn logging and authentication basics
-- Later: Nginx, HTTPS, monitoring, and deployment
+## Quick Start
 
-## Day 1
-
-Created a basic Flask API with:
-
-- `GET /`
-- `GET /health`
-
-## How to run locally
-
-Create a virtual environment:
+### Run locally
 
 ```bash
 python3 -m venv venv
+source venv/bin/activate   # Windows: .\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python3 run.py
 ```
 
-## Activate it on Linux/macOS:
+Test:
 
-    source venv/bin/activate
+```bash
+curl http://127.0.0.1:5000/
+```
 
-## Activate it on Windows PowerShell:
+---
 
-    .\venv\Scripts\Activate.ps1
+### Run with Docker
 
-## Install dependencies:
+```bash
+docker build -t devsecops-mini-platform .
+docker run -p 5000:5000 devsecops-mini-platform
+```
 
-    pip install -r requirements.txt
+---
 
-## Run the app:
+### Run with Docker Compose
 
-    python3 run.py
+```bash
+docker compose up --build
+# or (older systems)
+docker-compose up --build
+```
 
-## On Windows, you may need:
+---
 
-    python run.py
+## Project Goals
 
-## Test the app:
+* Practice Linux basics for DevOps
+* Improve Git and GitHub workflows
+* Build and structure a Flask API
+* Learn Docker and containerization
+* Use Docker Compose for service orchestration
+* Implement CI with GitHub Actions
+* Manage configuration with environment variables
+* Introduce DevSecOps practices (security, scanning, etc.)
 
-    curl http://127.0.0.1:5000/
-    curl http://127.0.0.1:5000/health
-
-## Day 2
-
-Improved the project structure by adding:
-
-- `app/` package
-- Flask application factory
-- Blueprint-based routes
-- `GET /api/info`
-- `.env.example` for safe configuration examples
+---
 
 ## Project Structure
 
-```text
+```
 devsecops-mini-platform/
 ├── app/
 │   ├── __init__.py
@@ -90,6 +78,8 @@ devsecops-mini-platform/
 └── requirements.txt
 ```
 
+---
+
 ## API Endpoints
 
 | Method | Endpoint    | Description             |
@@ -98,110 +88,118 @@ devsecops-mini-platform/
 | GET    | `/health`   | Health check            |
 | GET    | `/api/info` | Application information |
 
-## Day 3
+---
 
-Added automated tests with pytest.
+## Testing
 
-The tests check:
-
-- `GET /`
-- `GET /health`
-- `GET /api/info`
-
-## Running tests
-
-Activate the virtual environment:
+Run tests:
 
 ```bash
-source venv/bin/activate
+pytest
 ```
 
-## On Windows PowerShell:
+The test suite validates API endpoints and ensures stability.
 
-    .\venv\Scripts\Activate.ps1
+---
 
-## Run tests:
+## CI (GitHub Actions)
 
-    pytest
+This project uses GitHub Actions to:
 
-## Expected result:
+* Install dependencies
+* Run automated tests on every push
 
-    ============================= test session starts ==============================
-    platform linux -- Python 3.13.5, pytest-9.0.3, pluggy-1.6.0
-    rootdir: /home/devsecops-mini-platform
-    configfile: pytest.ini
-    testpaths: tests
-    collected 3 items
+This ensures that broken code is detected early.
 
-    tests/test_routes.py ...                                                 [100%]
+---
 
-    ============================== 3 passed in 0.01s ===============================
+## Docker
 
-## Day 4
+The application is containerized using Docker.
 
-Added GitHub Actions CI pipeline.
+Why this matters:
 
-Every push now automatically runs tests using pytest.
+* Consistent environments
+* Easier deployment
+* Isolation of dependencies
 
-If tests fail, the pipeline fails.
+---
 
-## CI
+## Docker Compose
 
-The project uses GitHub Actions to:
+Docker Compose is used to manage services.
 
-- Install dependencies
-- Run automated tests
+Why this matters:
 
-## Day 5
+* Prepares for multi-service architecture
+* Simplifies running the application
+* Standard in real-world DevOps setups
 
-Dockerized the Flask application.
+---
 
-## Run with Docker
+## Configuration (Environment Variables)
 
-## Build image:
+The application uses environment variables instead of hardcoded values.
 
-```bash
-docker build -t devsecops-mini-platform .
+Example:
+
 ```
-
-## Run container:
-
-    docker run -p 5000:5000 devsecops-mini-platform
-
-## Test:
-
-    curl http://127.0.0.1:5000/
-    curl http://127.0.0.1:5000/health
-    curl http://127.0.0.1:5000/api/info
-
-## Day 6
-
-Added Docker Compose for easier container management.
-
-## Run with Docker Compose
-
-```bash
-docker-compose up --build
-```
-
-## Stop:
-
-```bash
-docker-compose down
-```
-
-## Day 7
-
-Added environment variables and configuration management.
-
-## Configuration
-
-The app now uses environment variables instead of hardcoded values.
-
-## Example:
-
-```env
 APP_NAME=DevSecOps Mini Platform
 APP_VERSION=0.1.0
 APP_ENV=development
 ```
+
+Why this matters:
+
+* Improves security (no secrets in code)
+* Makes deployments flexible
+* Required for CI/CD pipelines
+
+`.env` is not committed to Git for security reasons.
+
+---
+
+## Progress (Learning Log)
+
+### Day 1
+
+* Created Flask API
+* Added `/` and `/health` endpoints
+
+### Day 2
+
+* Introduced application factory pattern
+* Added `/api/info`
+* Improved project structure
+
+### Day 3
+
+* Added pytest tests
+* Validated API endpoints
+
+### Day 4
+
+* Implemented GitHub Actions CI pipeline
+
+### Day 5
+
+* Dockerized the application
+
+### Day 6
+
+* Added Docker Compose
+
+### Day 7
+
+* Introduced environment variables and configuration management
+
+---
+
+## Next Steps
+
+* Secrets management in CI/CD
+* Security scanning (dependencies, code)
+* Reverse proxy (Nginx)
+* HTTPS setup
+* Logging and monitoring
+* Deployment strategies
