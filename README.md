@@ -157,6 +157,14 @@ Why this matters:
 
 `.env` is not committed to Git for security reasons.
 
+## Security
+
+- `.env` is not committed to Git
+- CI uses GitHub Secrets for configuration
+- Default values are used as fallback
+
+This prevents leaking sensitive information.
+
 ---
 
 ## Progress (Learning Log)
@@ -192,6 +200,11 @@ Why this matters:
 ### Day 7
 
 * Introduced environment variables and configuration management
+
+## Day 8
+
+Added secure handling of environment variables using GitHub Secrets.
+
 
 ---
 
