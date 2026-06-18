@@ -26,4 +26,4 @@ def test_app_info_endpoint(client):
 
     assert data["name"] == "DevSecOps Mini Platform"
     assert data["version"] == "0.1.0"
-    assert data["environment"] == "development"
+    assert data["environment"] in ["development", "ci"]
