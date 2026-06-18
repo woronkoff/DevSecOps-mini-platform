@@ -24,6 +24,6 @@ def test_app_info_endpoint(client):
 
     data = response.get_json()
 
-    assert data["app_name"] == "DevSecOps Mini Platform"
+    assert data["name"] == "DevSecOps Mini Platform"
     assert data["version"] == "0.1.0"
     assert data["environment"] == "development"
