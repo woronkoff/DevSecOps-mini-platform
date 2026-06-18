@@ -203,7 +203,7 @@ This prevents leaking sensitive information.
 
 ## Day 8
 
-Added secure handling of environment variables using GitHub Secrets.
+* Added secure handling of environment variables using GitHub Secrets.
 
 
 ---
